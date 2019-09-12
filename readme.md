@@ -1,1 +1,1 @@
-# Web structure
+# Site wireframe
