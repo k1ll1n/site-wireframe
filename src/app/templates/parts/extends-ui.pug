@@ -1,0 +1,9 @@
+mixin phone(clearedPhone, phone)
+    a( class="phone" href=`tel:${clearedPhone}`)= `${phone}`
+
+mixin email(email)
+    a(class="email" href=`mailto:${email}`)= `${email}`
+
+mixin img(src, altTitle)
+    img(src=`${src}` alt=`${altTitle}`)
+

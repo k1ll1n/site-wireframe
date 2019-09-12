@@ -1,0 +1,67 @@
+@import "util/variables.styl"
+@import "util/mixins.styl"
+@import "util/fonts.styl"
+@import "util/custom-ui.styl"
+
+@import "util/base.styl"
+
+/*########### PAGE #############*/
+#page
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-template-rows: minmax($footer-height, auto) 1fr minmax($footer-height, auto)
+  grid-row-gap $row-gap
+  grid-template-areas " header header header "\
+                      " content content content "\
+                      " footer footer footer "
+/*########### END ##############*/
+
+/*########### HEADER ###########*/
+header
+  background #333333
+  grid-area header
+  content-settings()
+  grid-template-areas " . h-content . "
+  & .header-content
+    grid-area h-content
+    // The following CSS rules can be removed
+    display flex
+    align-items center
+    & *
+      color white
+      font-size: 30px
+/*########### END ##############*/
+
+/*########### BODY #############*/
+.content-container
+  grid-area content
+  min-height: 100%
+  content-settings()
+  grid-template-areas " . p-content . "
+  & .content
+    grid-area p-content
+    // The following CSS rules can be removed
+    & *
+      color #333333
+      font-size: 30px
+/*########### END ##############*/
+
+/*########### FOOTER ###########*/
+footer
+  background #333333
+  grid-area footer
+  content-settings()
+  grid-template-areas " . f-content . "
+  & .footer-content
+    grid-area f-content
+    // The following CSS rules can be removed
+    display flex
+    align-items center
+    & *
+      color white
+      font-size: 30px
+/*########### END ##############*/
+
+/*########### PAGES ############*/
+@import "pages/*.styl"
+/*########### END ##############*/
