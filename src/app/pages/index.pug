@@ -2,3 +2,20 @@ extends ../layout/page
 
 block content
     div Page content
+
+    p Extends UI
+    +phone('8 (999) 888-77-66')
+    br
+    +email('test@mail.net')
+    div(style="max-width: 300px;")
+        +img('img/fig.jpg')(style="width: 100%; object-fit: cover;")
+
+    br
+    p Custom UI
+    +burger('no')
+    br
+    +arrow('right')
+
+    br
+    p.show-float-container Show float container
+    +float-container('down')

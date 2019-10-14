@@ -8,7 +8,7 @@
   cursor pointer
   & span
     display: block
-    background-color: #fff
+    background-color: black
     height: 2px
     width: 100%
     transition: 0.2s
@@ -44,7 +44,7 @@
   & span
     width: 25px
     height: 2px
-    background-color: #ffffff
+    background-color: black
     display: block
     transform-origin center
     position absolute
@@ -71,6 +71,7 @@
   height: 100%
   z-index 1
   transition $transition
+  background-color: #fff
   & .float-block
     display: grid
     grid-template-rows: 100px 1fr
@@ -99,11 +100,15 @@
       grid-area body
 
   &[out-from=top]
+    left: 0
+    right: 0
     &[show=yes]
       top: 0
     &[show=no]
       top: -100%
   &[out-from=down]
+    left: 0
+    right: 0
     &[show=yes]
       bottom: 0
     &[show=no]

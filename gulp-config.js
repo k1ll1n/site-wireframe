@@ -22,40 +22,40 @@ module.exports = {
   watch: {
     styles: 'src/app/css/**/*.styl',
     layout: 'src/app/layout/*.pug',
-    templates: 'src/app/templates/**/*.pug',
+    templates: 'src/app/templates/**/*.pug'
   },
+  // eslint-disable-next-line max-len
   othersPath: ['favicon.ico', 'humans.txt', 'icon.png', 'robots.txt', 'site.webmanifest', '*.png', 'safari-pinned-tab.svg'],
   webServer: {
     server: {
-      baseDir: "./build"
+      baseDir: './build'
     },
     tunnel: true,
     host: 'localhost',
     port: 9000,
-    logPrefix: "by_k1ll1n"
+    logPrefix: 'by_k1ll1n'
   },
   revManifest: {
     cssManifest: 'css-rev-manifest.json',
     jsManifest: 'js-rev-manifest.json'
   },
   plugins: {
-    gulp: require("gulp"),
+    gulp: require('gulp'),
     gulpif: require('gulp-if'),
-    babel: require("gulp-babel"),
+    babel: require('gulp-babel'),
     pug: require('pug'),
     gulpPug: require('gulp-pug'),
     stylus: require('stylus'),
     gulpStylus: require('gulp-stylus'),
-    replace: require("gulp-replace"),
+    replace: require('gulp-replace'),
     uglify: require('gulp-uglify-es').default,
-    fs: require("fs"),
+    fs: require('fs'),
     prefixer: require('gulp-autoprefixer'),
     urlAdjuster: require('gulp-css-url-adjuster'),
     cleanCSS: require('gulp-clean-css'),
-    browserSync: require("browser-sync"),
+    browserSync: require('browser-sync'),
     imagemin: require('gulp-imagemin'),
-    pngquant: require('pngquant'),
     rev: require('gulp-rev'),
     base64: require('gulp-base64')
   }
-};
+}

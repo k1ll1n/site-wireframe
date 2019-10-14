@@ -4,8 +4,8 @@ mixin burger(status)
         span
         span
 
-mixin arrow()
-    div(class="arrow")&attributes(attributes)
+mixin arrow(direction)
+    div(class="arrow" direction=`${direction}`)&attributes(attributes)
         span
         span
 

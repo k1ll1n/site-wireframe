@@ -8,25 +8,27 @@
 /*########### PAGE #############*/
 #page
   display: grid
-  grid-template-columns: repeat(3, 1fr)
+  grid-template-columns: 1fr
   grid-template-rows: minmax($footer-height, auto) 1fr minmax($footer-height, auto)
   grid-row-gap $row-gap
-  grid-template-areas " header header header "\
-                      " content content content "\
-                      " footer footer footer "
+  grid-template-areas " header "\
+                      " content "\
+                      " footer "
 /*########### END ##############*/
 
 /*########### HEADER ###########*/
 header
-  background #333333
+  background $header-bg
   grid-area header
-  content-settings()
+  content-width()
   grid-template-areas " . h-content . "
   & .header-content
+    background-size 100% 189px
     grid-area h-content
     // The following CSS rules can be removed
     display flex
     align-items center
+
     & *
       color white
       font-size: 30px
@@ -36,7 +38,7 @@ header
 .content-container
   grid-area content
   min-height: 100%
-  content-settings()
+  content-width()
   grid-template-areas " . p-content . "
   & .content
     grid-area p-content
@@ -48,9 +50,9 @@ header
 
 /*########### FOOTER ###########*/
 footer
-  background #333333
+  background $footer-bg
   grid-area footer
-  content-settings()
+  content-width()
   grid-template-areas " . f-content . "
   & .footer-content
     grid-area f-content

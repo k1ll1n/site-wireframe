@@ -1,0 +1,22 @@
+[
+  {
+    "js": "js/vendor/simple-scrollbar.min.js",
+    "css": "css/vendor/simple-scrollbar.css",
+    "include": true
+  },
+  {
+    "js": "js/vendor/flickity.pkgd.min.js",
+    "css": "css/vendor/flickity.min.css",
+    "include": true
+  },
+  {
+    "js": "https://unpkg.com/imask",
+    "css": "",
+    "include": true
+  },
+  {
+    "js": "",
+    "css": "https://use.fontawesome.com/releases/v5.5.0/css/all.css",
+    "include": true
+  }
+]

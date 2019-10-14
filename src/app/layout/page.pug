@@ -1,11 +1,13 @@
+include mixins
+include ../templates/parts/extends-ui
+include ../templates/parts/custom-ui
+
 doctype html
 html(class="no-js" lang="ru")
     head
         include head
 
     body
-        include ../templates/parts/extends-ui
-        include ../templates/parts/custom-ui
         include ie
         div#page
             header

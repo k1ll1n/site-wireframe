@@ -1,21 +1,21 @@
 $(document).ready(() => {
-  /*Открытие Float-container'а*/
-  $('.about-btn').click(() => {
-    $('.about-container').attr('show', 'yes')
-    $('.about-container .ss-content').animate({ scrollTop: 0 });
+  /* Открытие Float-container'а */
+  $('.show-float-container').click(() => {
+    $('.float-container').attr('show', 'yes')
+    $('.float-container.ss-content').animate({scrollTop: 0})
   })
-  /*END*/
+  /* END */
 
-  /*Закрытие Float-container'а*/
+  /* Закрытие Float-container'а */
   $('.float-container .float-header').click(() => {
     $('.float-container').attr('show', 'no')
   })
-  /*END*/
+  /* END */
 
-  $('.burger').click(function () {
-    let val = $(this).attr('active') === 'yes' ? 'no' : 'yes'
+  /* Нажатие бургера */
+  $('.burger').click(function() {
+    const val = $(this).attr('active') === 'yes' ? 'no' : 'yes'
     $(this).attr('active', val)
   })
-
-
-});
+  /* END */
+})
