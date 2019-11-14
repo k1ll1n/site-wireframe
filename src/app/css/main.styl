@@ -9,7 +9,7 @@
 #page
   display: grid
   grid-template-columns: 1fr
-  grid-template-rows: minmax($footer-height, auto) 1fr minmax($footer-height, auto)
+  grid-template-rows: minmax($header-height, auto) 1fr minmax($footer-height, auto)
   grid-row-gap $row-gap
   grid-template-areas " header "\
                       " content "\
@@ -20,6 +20,7 @@
 header
   background $header-bg
   grid-area header
+  display grid
   content-width()
   grid-template-areas " . h-content . "
   & .header-content
@@ -37,7 +38,8 @@ header
 /*########### BODY #############*/
 .content-container
   grid-area content
-  min-height: 100%
+  min-height: 1fr
+  display grid
   content-width()
   grid-template-areas " . p-content . "
   & .content
@@ -45,13 +47,13 @@ header
     // The following CSS rules can be removed
     & *
       color #333333
-      font-size: 30px
 /*########### END ##############*/
 
 /*########### FOOTER ###########*/
 footer
   background $footer-bg
   grid-area footer
+  display grid
   content-width()
   grid-template-areas " . f-content . "
   & .footer-content

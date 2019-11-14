@@ -12,24 +12,14 @@
 ///   h1 {
 ///     @include responsive-type(20px, 48px);
 ///   }
-/// @site https://madebymike.com.au/writing/precise-control-responsive-typography/
 
-responsive-font($min-font-size = 12px, $max-font-size = 21px, $lower-range = 420px, $upper-range = 1440px)
+responsive-font($min-font-size = 12px, $max-font-size = 21px, $lower-range = $min-content-width, $upper-range = $max-content-width)
   var1 = $min-font-size
   var2 = (($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1)))
   var3 = (($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))
+  --lh: "calc((%s + %s * ( (100vw - %s)  / %s)))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
   font-size "calc(%s + %s * ( (100vw - %s)  / %s))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
-  @media screen and (max-width: $lower-range)
-    font-size: $min-font-size;
-  @media screen and (min-width: $upper-range)
-    font-size: $max-font-size;
-
-responsive-font-with-line-height($min-font-size = 12px, $max-font-size = 21px, $lower-range = 420px, $upper-range = 1440px)
-  var1 = $min-font-size
-  var2 = (($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1)))
-  var3 = (($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))
-  font-size "calc(%s + %s * ( (100vw - %s)  / %s))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
-  line-height "calc(%s + %s * ( (100vw - %s)  / %s))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
+  line-height calc(var(--lh) - (var(--lh) * 0.10))
   @media screen and (max-width: $lower-range)
     font-size: $min-font-size;
     line-height $min-font-size;
@@ -51,6 +41,31 @@ require-fonts($font-family, $file-name) {
   }
 }
 
-content-width($percent = 20%)
-  display grid
-  grid-template-columns: $percent minmax($min-content-width, $max-content-width) $percent
+content-width()
+  $min-gup-size = 10px
+  $max-gup-size = 40px
+  $lower-range = $min-content-width
+  $upper-range = $max-content-width
+  var1 = $min-gup-size
+  var2 = (($max-gup-size / ($max-gup-size * 0 + 1)) - ($min-gup-size / ($min-gup-size * 0 + 1)))
+  var3 = (($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))
+  --p: "calc(%s + %s * ( (100vw - %s)  / %s))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
+  grid-template-columns: var(--p) minmax($min-content-width, $max-content-width) var(--p)
+  @media screen and (min-width: 960px)
+    grid-template-columns: 1fr 900px 1fr
+
+responsive-unit($min-unit = 12px, $max-unit = 21px, $lower-range = 420px, $upper-range = 1440px)
+  var1 = $min-unit
+  var2 = (($max-unit / ($max-unit * 0 + 1)) - ($min-unit / ($min-unit * 0 + 1)))
+  var3 = (($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))
+  --unit: "calc((%s + %s * ( (100vw - %s)  / %s)))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
+  @media screen and (max-width: $lower-range)
+    --unit: $min-unit;
+  @media screen and (min-width: $upper-range)
+    --unit: $max-unit;
+
+responsive-var($min-unit = 12px, $max-unit = 21px, $lower-range = 420px, $upper-range = 1440px)
+  var1 = $min-unit
+  var2 = (($max-unit / ($max-unit * 0 + 1)) - ($min-unit / ($min-unit * 0 + 1)))
+  var3 = (($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))
+  "calc((%s + %s * ( (100vw - %s)  / %s)))" % (var1 unit(var2, '') $lower-range unit(var3, ''))

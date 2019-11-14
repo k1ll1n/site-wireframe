@@ -125,4 +125,69 @@
       right: 0
     &[show=no]
       right: -100%
+.heart
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  &:before
+  &:after
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+  &:before
+    left: 0;
+  &:after
+    top: 0;
 
+heart-size($size = 30px)
+  height $size
+  width: $size
+  &:before
+  &:after
+    height $size
+    width: $size
+  &:before
+    top: "calc(0px - (%s / 2))" % $size
+  &:after
+    left: "calc(%s / 2)" % $size
+heart-color($not-active = gray, $active = red)
+  &[active=yes]
+    background-color: $active
+    &:before
+    &:after
+      background-color: $active
+  &[active=no]
+    background-color: $not-active
+    &:before
+    &:after
+      background-color: $not-active
+.star
+  position relative
+  display inline-block
+  width: 0
+  height: 0
+  margin-left: .9em
+  margin-right: .9em
+  margin-bottom: 1.2em
+  border-right:  .3em solid transparent;
+  border-bottom: .7em  solid #FC0;
+  border-left:   .3em solid transparent;
+  &:before,
+  &:after
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: .6em;
+    left: -1em;
+    border-right:  1em solid transparent;
+    border-bottom: .7em  solid #FC0;
+    border-left:   1em solid transparent;
+    transform: rotate(-35deg);
+  &:after
+    transform: rotate(35deg)
+star-size($size = 30px)
+  font-size $size

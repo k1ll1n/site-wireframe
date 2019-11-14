@@ -1,0 +1,17 @@
+.heart
+  heart-size(22px)
+  heart-color(gray, red)
+.star
+  star-size(22px !important)
+
+.ru-rf
+  responsive-unit(300px, 600px)
+  width: var(--unit)
+  --h: responsive-var(100px, 400px)
+  height var(--h)
+  responsive-font(16px, 45px)
+  background-color: gray
+  @media screen and (max-width: $min-content-width)
+    --h: 100px;
+  @media screen and (min-width: $max-content-width)
+    --h: 400px;

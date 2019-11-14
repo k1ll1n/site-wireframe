@@ -16,3 +16,9 @@ mixin float-container(from)
                 +arrow(direction=`${from}`)
             div.float-body
                 block
+
+mixin heart(active)
+    div(active=active).heart
+
+mixin star()
+    i.star
