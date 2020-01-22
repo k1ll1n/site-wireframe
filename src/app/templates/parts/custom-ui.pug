@@ -1,5 +1,5 @@
 mixin burger(status)
-    div(class="burger" active=`${status}`)
+    div(class="burger" active=`${status}`)&attributes(attributes)
         span
         span
         span
@@ -18,7 +18,7 @@ mixin float-container(from)
                 block
 
 mixin heart(active)
-    div(active=active).heart
+    div(class="heart" active=active)&attributes(attributes)
 
 mixin star()
     i.star
