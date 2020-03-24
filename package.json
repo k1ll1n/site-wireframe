@@ -2,7 +2,7 @@
   "name": "site-wireframe",
   "siteName": "Site wireframe",
   "description": "Startup project for html markup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "GULP_ENV='development' gulp",
     "prod": "GULP_ENV='production' gulp"

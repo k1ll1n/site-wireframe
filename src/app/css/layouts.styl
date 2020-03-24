@@ -1,0 +1,73 @@
+// Основная тема
+#page[layout=main]
+  header
+    background-color: $header-bg
+    & .header-content
+      display flex
+      align-items center
+      & *
+        color white
+        font-size: 30px
+  .content-container
+    background-color: $content-bg
+    & .content
+      & *
+        color #333333
+  footer
+    background-color: $footer-bg
+    & .footer-content
+      display flex
+      align-items center
+      & *
+        color white
+        font-size: 30px
+
+
+
+// Основная тема
+#page[layout=dark]
+  header
+    background-color: $dark_header-bg
+    & .header-content
+      display flex
+      align-items center
+      & *
+        color white
+        font-size: 30px
+  .content-container
+    background-color: $dark_content-bg
+    & .content
+      & *
+        color #333333
+  footer
+    background-color: $dark_footer-bg
+    & .footer-content
+      display flex
+      align-items center
+      & *
+        color white
+        font-size: 30px
+
+// Другие темы
+#page[layout=theme_name]
+  header
+    background-color: $dark_header-bg
+    & .header-content
+      display flex
+      align-items center
+      & *
+        color white
+        font-size: 30px
+  .content-container
+    background-color: $dark_content-bg
+    & .content
+      & *
+        color #333333
+  footer
+    background-color: $dark_footer-bg
+    & .footer-content
+      display flex
+      align-items center
+      & *
+        color white
+        font-size: 30px

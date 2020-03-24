@@ -50,9 +50,13 @@ content-width()
   var2 = (($max-gup-size / ($max-gup-size * 0 + 1)) - ($min-gup-size / ($min-gup-size * 0 + 1)))
   var3 = (($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))
   --p: "calc(%s + %s * ( (100vw - %s)  / %s))" % (var1 unit(var2, '') $lower-range unit(var3, ''))
-  grid-template-columns: var(--p) minmax($min-content-width, $max-content-width) var(--p)
-  @media screen and (min-width: 960px)
-    grid-template-columns: 1fr 900px 1fr
+  --mcw "calc(%s - (var(--p) * 2))" % $min-content-width
+  grid-template-columns: var(--p) minmax(var(--mcw), $max-content-width) var(--p)
+  @media screen and (min-width: $max-content-width)
+    if $max-content-width == 100vw
+      grid-template-columns: 1fr calc(100vw - (100vw - 100%)) 1fr
+    else
+      grid-template-columns: 1fr $max-content-width 1fr
 
 responsive-unit($min-unit = 12px, $max-unit = 21px, $lower-range = 420px, $upper-range = 1440px)
   var1 = $min-unit

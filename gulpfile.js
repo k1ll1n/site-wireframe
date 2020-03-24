@@ -18,7 +18,7 @@ function buildHtml() {
 	delete require.cache[require.resolve('./libs')]
 	return src(config.src.pages)
 		.pipe(plugins.gulpPug({
-			pretty: (env !== 'production'),
+			pretty: true,
 			locals: {
 				cssManifest: cssManifest,
 				jsManifest: jsManifest,
@@ -37,7 +37,7 @@ function buildStyles() {
 		.pipe(plugins.gulpStylus())
 		.pipe(plugins.prefixer())
 		.pipe(plugins.cssUrlReplace(
-			{'font': 'fonts/'}
+			{'font': 'fonts/', 'img': '/'}
 		))
 		.pipe(plugins.base64({
 			baseDir: 'src/app/img',

@@ -1,4 +1,4 @@
-extends ../layout/page
+extends ../layout/main_layout
 
 block content
     div Page content
@@ -7,15 +7,9 @@ block content
     +phone('8 (999) 888-77-66')
     br
     +email('test@mail.net')
-    div(style="max-width: 300px;")
+    div(style="max-width: 150px;")
         +img('img/fig.jpg')(style="width: 100%; object-fit: cover;")
 
-    br
-
-    +heart('no')
-    +heart('yes')
-
-    +star
 
     br
     p Custom UI
@@ -28,4 +22,7 @@ block content
     +float-container('down')
 
     div.ru-rf Responsive Unit + Responsive Font + Responsive Var
+
+
+
 

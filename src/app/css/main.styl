@@ -7,65 +7,55 @@
 
 /*########### PAGE #############*/
 #page
-  display: grid
-  grid-template-columns: 1fr
-  grid-template-rows: minmax($header-height, auto) 1fr minmax($footer-height, auto)
-  grid-row-gap $row-gap
-  grid-template-areas " header "\
-                      " content "\
-                      " footer "
+  display flex
+  flex-direction column
+  justify-content center
+
 /*########### END ##############*/
 
 /*########### HEADER ###########*/
 header
-  background $header-bg
-  grid-area header
+  height $header-height
+  flex-grow 0
   display grid
   content-width()
   grid-template-areas " . h-content . "
   & .header-content
-    background-size 100% 189px
     grid-area h-content
-    // The following CSS rules can be removed
-    display flex
-    align-items center
-
-    & *
-      color white
-      font-size: 30px
 /*########### END ##############*/
 
 /*########### BODY #############*/
 .content-container
-  grid-area content
-  min-height: 1fr
+  min-height "calc((100vh - (%s + %s)) - %s)" % ($header-height $footer-height ($row-gap * 2))
+  flex-grow 1
   display grid
   content-width()
   grid-template-areas " . p-content . "
+  grid-template-rows 100%
   & .content
+    width: 100%
+    margin-top $row-gap
+    margin-bottom: $row-gap
     grid-area p-content
-    // The following CSS rules can be removed
-    & *
-      color #333333
+    if $debug
+      background-color: green
 /*########### END ##############*/
 
 /*########### FOOTER ###########*/
 footer
-  background $footer-bg
-  grid-area footer
+  height $footer-height
+  flex-grow 0
   display grid
   content-width()
   grid-template-areas " . f-content . "
   & .footer-content
     grid-area f-content
-    // The following CSS rules can be removed
-    display flex
-    align-items center
-    & *
-      color white
-      font-size: 30px
 /*########### END ##############*/
 
 /*########### PAGES ############*/
 @import "pages/*.styl"
+/*########### END ##############*/
+
+/*########## LAYOUTS ###########*/
+@import "layouts.styl"
 /*########### END ##############*/

@@ -4,7 +4,7 @@ import {Test} from './test'
 
 $(document).ready(() => {
 	const t = new Test('hello')
-	t.showMessage()
+	//t.showMessage()
 
 	/* Открытие Float-container'а */
 	$('.show-float-container').click(() => {
