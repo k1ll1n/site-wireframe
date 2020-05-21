@@ -76,6 +76,14 @@ module.exports = function(plop) {
 					if (data.isNewPage) return
 					else return 'skip'
 				}
+			},
+			{
+				type: 'add',
+				path: '../../src/app/css/pages/{{page_name}}.styl',
+				skip(data) {
+					if (data.isNewPage) return
+					else return 'skip'
+				}
 			}
 		]
 	})
