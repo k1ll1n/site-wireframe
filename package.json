@@ -2,10 +2,12 @@
   "name": "site-wireframe",
   "siteName": "Site wireframe",
   "description": "Startup project for html markup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
+    "tmp": "gulp",
     "dev": "GULP_ENV='development' gulp",
-    "prod": "GULP_ENV='production' gulp"
+    "prod": "GULP_ENV='production' gulp",
+    "plop": "plop"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,9 @@
   "homepage": "https://github.com/k1ll1n/site-wireframe",
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.6.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -43,12 +48,14 @@
     "imagemin-jpegtran": "^6.0.0",
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.0.0",
+    "plop": "^2.6.0",
     "pug": "^2.0.4",
     "stylus": "^0.54.7",
     "webpack": "^4.41.2",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "mobx": "^5.15.4"
   }
 }

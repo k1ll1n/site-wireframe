@@ -62,6 +62,7 @@ module.exports = {
 	},
 	webpackConfig: {
 		mode: null,
+		entry: ['@babel/polyfill', './src/app/js/main.js'],
 		output: {
 			filename: 'app.js'
 		},
@@ -73,7 +74,13 @@ module.exports = {
 					exclude: /(node_modules)/,
 					loader: 'babel-loader',
 					query: {
-						presets: ['@babel/env']
+						presets: [
+							['@babel/env', {targets: {esmodules: true}}]
+						],
+						plugins: [
+							['@babel/plugin-proposal-decorators', {'legacy': true}],
+							['@babel/plugin-proposal-class-properties', {'legacy': true}]
+						]
 					}
 				},
 				{

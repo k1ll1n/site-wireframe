@@ -1,9 +1,9 @@
 export class Test {
-  constructor(word) {
-    this.message = word
-  }
+	constructor(word) {
+		this.message = word
+	}
 
-  showMessage() {
-    alert(this.message)
-  }
+	showMessage() {
+		console.log(this.message)
+	}
 }

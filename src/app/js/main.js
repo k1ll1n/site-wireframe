@@ -1,33 +1,24 @@
 import $ from 'jquery'
 
 import {Test} from './test'
+import {Burger} from './custom-ui/burger'
+import {FloatContainer} from './custom-ui/float-container'
 
 $(document).ready(() => {
 	const t = new Test('hello')
-	//t.showMessage()
+	t.showMessage()
 
-	/* Открытие Float-container'а */
-	$('.show-float-container').click(() => {
-		$('.float-container').attr('show', 'yes')
-		$('.float-container.ss-content').animate({scrollTop: 0})
+	const burger = new Burger('.burger')
+	const floatContainer = new FloatContainer(
+		'.float-container',
+		'.float-header'
+	)
+
+	burger.init(null, () => {
+		floatContainer.openClose()
 	})
-	/* END */
 
-	/* Закрытие Float-container'а */
-	$('.float-container .float-header').click(() => {
-		$('.float-container').attr('show', 'no')
+	floatContainer.init(null, () => {
+		burger.openClose()
 	})
-	/* END */
-
-	$('.burger').click(openBurger())
-	/* END */
 })
-
-/*
-  * Нажатие бургера
-  * @this относится к кнопке
-  * */
-function openBurger() {
-	const val = $(this).attr('active') === 'yes' ? 'no' : 'yes'
-	$(this).attr('active', val)
-}

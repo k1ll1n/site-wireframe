@@ -9,11 +9,15 @@ html(class="no-js" lang="ru")
 
     body
         include elements/ie
-        div(layout="main" use-defaults-style="yes")#page
+        div(layout="{{> layoutName }}" use-defaults-style="yes")#page
             header
                 section.header-content
                     block header
-                        include ../templates/default/header
+                        {{#if this.isNewHeader}}
+                            include ../templates/default/{{> layoutName }}_header
+                        {{else}}
+                            include ../templates/default/header
+                        {{/if}}
 
             section.content-container
                 div.content
@@ -28,6 +32,10 @@ html(class="no-js" lang="ru")
             footer
                 section.footer-content
                     block footer
-                        include ../templates/default/footer
+                        {{#if this.isNewFooter}}
+                            include ../templates/default/{{> layoutName }}_footer
+                        {{else}}
+                            include ../templates/default/footer
+                        {{/if}}
 
         include elements/scripts

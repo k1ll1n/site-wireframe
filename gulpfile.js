@@ -2,7 +2,7 @@ const config = require('./gulp-config')
 const {src, dest, watch, task, series} = config.plugins.gulp
 const plugins = config.plugins
 const reload = config.plugins.browserSync.reload
-const env = process.env.GULP_ENV
+const env = process.env.GULP_ENV || 'development'
 
 // eslint-disable-next-line require-jsdoc
 function buildHtml() {
