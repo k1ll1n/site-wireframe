@@ -9,7 +9,7 @@ html(class="no-js" lang="ru")
 
     body
         include elements/ie
-        div(layout="{{> layoutName }}" use-defaults-style="yes")#page
+        div(layout="{{> layoutName }}" {{#if this.isDefaultStyles}}use-defaults-style="yes"{{else}}use-defaults-style="no"{{/if}})#page
             header
                 section.header-content
                     block header

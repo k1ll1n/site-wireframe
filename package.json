@@ -1,22 +1,22 @@
 {
-  "name": "Название проекта",
-  "siteName": "Самый лучший сайт",
-  "description": "Описание проекта",
-  "version": "0.1",
+  "name": "site-wireframe",
+  "siteName": "Site wireframe",
+  "description": "Startup project for html markup",
+  "version": "0.0.3",
   "scripts": {
     "tmp": "gulp",
     "dev": "GULP_ENV='development' gulp",
     "prod": "GULP_ENV='production' gulp",
-    "gen-layout": "plop --plopfile utils/generators/layout.js",
-    "gen-project": "plop --plopfile utils/generators/project.js"
+    "glayout": "plop --plopfile utils/generators/layout.js",
+    "gpage": "plop --plopfile utils/generators/page.js"
   },
   "repository": {
     "type": "git",
-    "url": "Ссылка на репозиторий"
+    "url": "https://github.com/k1ll1n/site-wireframe.git"
   },
-  "author": "Автор проекта",
-  "license": "license_project",
-  "homepage": "Ссылка на домашнюю страницу",
+  "author": "k1ll1n",
+  "license": "MIT",
+  "homepage": "https://github.com/k1ll1n/site-wireframe",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
