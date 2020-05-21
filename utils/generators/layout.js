@@ -4,7 +4,7 @@ module.exports = function(plop) {
 	})
 
 	plop.setGenerator('layout', {
-		description: 'application controller logic',
+		description: 'Генерация шаблона',
 		prompts: [
 		    {
 				type: 'input',
@@ -25,13 +25,13 @@ module.exports = function(plop) {
 		actions: [
 			{
 				type: 'add',
-				path: 'src/app/layout/{{layout_name}}_layout.pug',
-				templateFile: 'templates/layout/layout.hbs'
+				path: '../../src/app/layout/{{layout_name}}_layout.pug',
+				templateFile: '../templates/layout/layout.hbs'
 			},
 			{
 				type: 'add',
-				path: 'src/app/templates/default/{{layout_name}}_header.pug',
-				templateFile: 'templates/layout/header.hbs',
+				path: '../../src/app/templates/default/{{layout_name}}_header.pug',
+				templateFile: '../templates/layout/header.hbs',
 				skip(data) {
 					if (data.isNewHeader) return
 					else return 'skip'
@@ -39,21 +39,16 @@ module.exports = function(plop) {
 			},
 			{
 				type: 'add',
-				path: 'src/app/templates/default/{{layout_name}}_footer.pug',
-				templateFile: 'templates/layout/footer.hbs',
+				path: '../../src/app/templates/default/{{layout_name}}_footer.pug',
+				templateFile: '../templates/layout/footer.hbs',
 				skip(data) {
 					if (data.isNewFooter) return
 					else return 'skip'
-				},
-				transform(fileContents, data) {
-					return fileContents.replace(/mushrooms/g, 'pepperoni')
 				}
 			}
 		]
 	})
 	plop.setPartial('layoutName', '{{layout_name}}')
-	plop.setPartial('isNewHeader', '{{newHeader}}')
-	plop.setPartial('isNewFooter', '{{newFooter}}')
 }
 
 // plop --plopfile generators/index.js
