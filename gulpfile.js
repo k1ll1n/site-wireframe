@@ -65,11 +65,11 @@ function mergeVendorStyles() {
 function buildJs() {
 	const wpConf = config.webpackConfig
 	wpConf.mode = env
-	return src(config.src.js, {sourcemaps: true})
+	return src(config.src.js)
 		.pipe(plugins.wpStream(wpConf))
-		.pipe(plugins.uglify())
+		//.pipe(plugins.uglify())
 		.pipe(plugins.gulpif(env === 'production', plugins.rev()))
-		.pipe(dest(config.build.js, {sourcemaps: true}))
+		.pipe(dest(config.build.js))
 		// eslint-disable-next-line max-len
 		.pipe(plugins.gulpif(env === 'production', plugins.rev.manifest(config.revManifest.jsManifest)))
 		.pipe(plugins.gulpif(env === 'production', dest(config.build.manifest)))

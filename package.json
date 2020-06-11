@@ -4,7 +4,6 @@
   "description": "Startup project for html markup",
   "version": "0.0.3",
   "scripts": {
-    "tmp": "gulp",
     "dev": "GULP_ENV='development' gulp",
     "prod": "GULP_ENV='production' gulp",
     "glayout": "plop --plopfile utils/generators/layout.js",
