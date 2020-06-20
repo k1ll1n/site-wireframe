@@ -67,7 +67,7 @@ function buildJs() {
 	wpConf.mode = env
 	return src(config.src.js)
 		.pipe(plugins.wpStream(wpConf))
-		//.pipe(plugins.uglify())
+		// .pipe(plugins.gulpif(env === 'production', plugins.uglify()))
 		.pipe(plugins.gulpif(env === 'production', plugins.rev()))
 		.pipe(dest(config.build.js))
 		// eslint-disable-next-line max-len
@@ -130,6 +130,7 @@ function watchFiles() {
 	watch([config.watch.layout, config.src.pages, config.watch.templates], buildHtml)
 	watch(config.watch.styles, series(buildStyles))
 	watch(config.src.cssVendors, mergeVendorStyles)
+	watch(config.src.customUi, series(buildJs))
 	watch(config.src.js, series(buildJs))
 	watch(config.src.jsVendors, mergeVendorJs)
 	watch(config.src.img, collectImages)

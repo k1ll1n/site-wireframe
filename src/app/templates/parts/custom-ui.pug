@@ -16,3 +16,8 @@ mixin float-container(from)
                 +arrow(direction=`${from}`)
             div.float-body
                 block
+
+mixin modal-window()
+    div(class="modal-container")&attributes(attributes)
+        div.modal-window
+            block

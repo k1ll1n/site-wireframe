@@ -2,6 +2,7 @@ import {observable, autorun} from 'mobx'
 
 export class FloatContainer {
 	constructor(containerSelector, closeSelector) {
+		this._closeSelector = closeSelector
 		this._openEl = document.querySelector(containerSelector)
 		this._closeEl = document.querySelector(closeSelector)
 		this._init = false
@@ -17,7 +18,13 @@ export class FloatContainer {
 			if (!this._init) {
 				this._init = true
 			} else {
-				this._openEl.setAttribute('show', state)
+				if (this._openEl !== null) {
+					this._openEl.setAttribute('show', state)
+				} else {
+					console.log(
+						'Не удалось обнаружить данный элемент:', this._closeSelector
+					)
+				}
 			}
 		})
 	}
@@ -27,14 +34,20 @@ export class FloatContainer {
 	}
 
 	init(beforeAction = null, afterAction = null) {
-		this._closeEl.addEventListener('click', () => {
-			if (beforeAction !== null) {
-				beforeAction()
-			}
-			this._floatContainer.openClose()
-			if (afterAction !== null) {
-				afterAction()
-			}
-		})
+		if (this._closeEl !== null) {
+			this._closeEl.addEventListener('click', () => {
+				if (beforeAction !== null) {
+					beforeAction()
+				}
+				this._floatContainer.openClose()
+				if (afterAction !== null) {
+					afterAction()
+				}
+			})
+		} else {
+			console.log(
+				'Не удалось обнаружить данный элемент:', this._closeSelector
+			)
+		}
 	}
 }

@@ -2,6 +2,7 @@ import {observable, autorun} from 'mobx'
 
 export class Burger {
 	constructor(selector) {
+		this._elSelector = selector
 		this._el = document.querySelector(selector)
 		this._init = true
 		this._burger = observable({
@@ -27,14 +28,20 @@ export class Burger {
 	}
 
 	init(beforeAction = null, afterAction = null) {
-		this._el.addEventListener('click', () => {
-			if (beforeAction !== null) {
-				beforeAction()
-			}
-			this._burger.openClose()
-			if (afterAction !== null) {
-				afterAction()
-			}
-		})
+		if (this._el !== null) {
+			this._el.addEventListener('click', () => {
+				if (beforeAction !== null) {
+					beforeAction()
+				}
+				this._burger.openClose()
+				if (afterAction !== null) {
+					afterAction()
+				}
+			})
+		} else {
+			console.log(
+				'Не удалось обнаружить данный элемент:', this._elSelector
+			)
+		}
 	}
 }

@@ -4,6 +4,7 @@ module.exports = {
 		styles: 'src/app/css/main.styl',
 		cssVendors: 'src/app/css/vendor/*.css',
 		js: 'src/app/js/*.js',
+		customUi: 'src/app/js/custom-ui/*.js',
 		jsVendors: 'src/app/js/vendor/*.js',
 		img: 'src/app/img/**/*.{jpeg,jpg,png,tiff,gif,bmp,svg,webp}',
 		fonts: 'src/app/fonts/*.{eot,ttf,woff,woff2}'
@@ -66,7 +67,7 @@ module.exports = {
 		output: {
 			filename: 'app.js'
 		},
-		devtool: 'inline-source-map',
+		devtool: 'source-map',
 		module: {
 			rules: [
 				{
